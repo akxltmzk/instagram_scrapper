@@ -1,4 +1,6 @@
 extends layout
 
 block content
-  p= result
+  each val in result
+    img(src=val)
+  

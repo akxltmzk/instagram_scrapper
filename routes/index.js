@@ -7,16 +7,17 @@ router.get('/', (req, res, next)=> {
   let process = spawn('python',["python_scrapper/app.py"] )        
 
   process.stdout.on('data',(data)=>{
- 
-    let result = Buffer.from(data)
-    console.log(result[0])
-    console.log(result.length)    
-    res.render('index',{'result': result})       
+
+    let utf8 = data.toString('utf-8')
+    utf8 = utf8.replace(/['\[\]]/g, '')
+    let array = utf8.split(',')
+
+    
+    res.render('index',{'result': array})       
   })   
 })
 
 
-// 8057
 
 
 module.exports = router
