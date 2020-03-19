@@ -1,0 +1,11 @@
+extends layout
+
+block content 
+  .content.mobile
+    .form-wrapper 
+      form#initailize-form(action='/initialize-contents')
+        label.block(for='Instagram ID') Instagram ID :
+        input.block(type='text' id='instaID' name='instaID' value='JJong.h')
+        button(type='submit')
+
+    

@@ -12,12 +12,10 @@ import re
 #----------------------------------------------------------------------------#
 
 MATCH_PATTERN = re.compile('<a href="(?P<photourl>[\w-]+)">')
-# insta_targetname = input('Profile Username: ')
-insta_targetname = 'jjong.h'
 insta_username = "01066631693"
 insta_password = "haha8269^^"
 login_url = 'https://www.instagram.com/accounts/login/?source=auth_switcher'
-instagram_url = f'https://www.instagram.com/{insta_targetname}'
+instagram_url = f'https://www.instagram.com/'
 browser = webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\chromedriver.exe')
 
 
@@ -25,26 +23,26 @@ browser = webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\
 #-----------------------------  function   ----------------------------------#
 #----------------------------------------------------------------------------#
 
-def gallery_url():
+def gallery_url(_username):
     login_page = browser.get(login_url)
     time.sleep(1)
-    instagram_login()
+    instagram_login(_username)
     browserscrolldown()
     html = browser.page_source
     bs_html = BeautifulSoup(html, 'html.parser')
     gallery_url = extract_gallery_url(bs_html)
     return gallery_url
 
-def instagram_login():
+def instagram_login(_username):
 
     browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
     browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
     browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)
     browser.find_element_by_xpath("//button[@name='login']").click()
-    time.sleep(3)
+    time.sleep(7)
     browser.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
   
-    browser.get(instagram_url)
+    browser.get(instagram_url + _username)
 
 def browserscrolldown():
     elem = browser.find_element_by_tag_name("body")
@@ -61,22 +59,4 @@ def extract_gallery_url(bs_html):
         url = each_class.find('img',{'class':'FFVAD'})['src']
         gallery_url.append(url)
     return gallery_url
-
-
-
-
-# def get_followers_count():
-#     if response.ok:
-#         html = response.text
-#         bs_html = BeautifulSoup(html,'html.parser')
-#         scripts = bs_html.select('script[type="application/ld+json"]')
-#         scripts_content = json.loads(scripts[0].text.strip())
-#
-#         print(json.dumps(scripts_content, indent=4, sort_keys=True))
-#
-#         main_entity_of_page = scripts_content['mainEntityofPage']
-#         interaction_Statistic = main_entity_of_page['interactionStatistic']
-#         followers_count = interaction_Statistic['userInteractionCount']
-#
-#         return followers_count
 

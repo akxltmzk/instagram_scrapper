@@ -4,10 +4,10 @@ let path = require('path')
 let cookieParser = require('cookie-parser')
 let logger = require('morgan')
 let app = express()
+app.io = require('socket.io')()
 
-let indexRouter = require('./routes/index')
-
-
+let browser_router = require('./routes/browser-router')(app.io)
+let mobile_router = require('./routes/mobile-router')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter)
-
+app.use('/', browser_router)
+app.use('/', mobile_router)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
