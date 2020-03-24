@@ -1,8 +1,11 @@
 const socket = io.connect('http://localhost:3000');
 
-socket.on('getusername',(data)=>{
-  console.log(data.length)
+// get url array form server, and make image grid
+socket.on('get-url-Array',(data)=>{
+
+  $('.loading-page').addClass('hidden')
   $('.idle-page').addClass('hidden')
+  $('.image-page').removeClass('hidden')
 
   data.forEach(element => {
     $('.instagram-image').append(`<img src=${element} class='image'>`)
@@ -15,8 +18,17 @@ socket.on('getusername',(data)=>{
     'display': 'inline'
   })
 
-
+  // back to intro page
   setTimeout(function(){ 
     window.location.href = '/intro'
   }, 10000);
 })
+
+socket.on('loadingpage-active',()=>{
+  $('.loading-page').removeClass('hidden')
+  $('.idle-page').addClass('hidden')
+  $('.image-page').addClass('hidden')
+})
+
+
+

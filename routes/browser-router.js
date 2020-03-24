@@ -8,7 +8,12 @@ module.exports = function (io) {
   // socket io connect
   io.on('connection', function (socket) {  
     console.log('socket connected!')
+    socket.on('loading',()=>{
+      io.emit('loadingpage-active') 
+    })
  })
+
+
 
   router.get('/intro', (req, res, next)=> {
     res.render('browser')         
@@ -33,7 +38,7 @@ module.exports = function (io) {
       urlArray = array
  
       if(urlArray.length > 0)
-        io.emit('getusername',urlArray)
+        io.emit('get-url-Array',urlArray)
 
       res.end()
  

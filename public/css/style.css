@@ -179,12 +179,6 @@ ul{list-style-type: none;}
 
 /*----------------------------------- bowser---------------------------------- */
 
-.content.browser .instagram-image-wrap{
-  position: relative;
-  width: 100%;
-  text-align: center;
-}
-
 .content.browser .idle-page{
   position: absolute;
   top: 50%;
@@ -198,6 +192,23 @@ ul{list-style-type: none;}
   margin-bottom: 20%;
   text-transform: uppercase;
   color: rgb(132, 204, 255);
+}
+
+.content.browser .loading-page{
+  text-align: center;
+
+  font-family: 'Kanit', sans-serif;
+  font-size:  1.5em;
+  margin-top: 20%;
+  text-transform: uppercase;
+  color: rgb(132, 204, 255);
+
+}
+
+.content.browser .image-page{
+  position: relative;
+  width: 100%;
+  text-align: center;
 }
 
 /* animation */

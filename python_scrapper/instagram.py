@@ -31,19 +31,19 @@ def gallery_url(_username):
     return urllist
 
 def instagram_login(_username):
-    
+    """
     browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
     browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
     browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)
     browser.find_element_by_xpath("//button[@name='login']").click()
     time.sleep(7)
     browser.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
-    
+    """
     browser.get(instagram_url + _username)
 
 def browserscrolldown():
     elem = browser.find_element_by_tag_name("body")
-    no_of_pagedowns = 50
+    no_of_pagedowns = 1
     urllist = []
     while no_of_pagedowns:
         # html을 파싱하면서 image url을 배열(urlist)에 담는다
