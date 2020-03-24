@@ -41,7 +41,7 @@ def instagram_login(_username):
 
 def browserscrolldown():
     elem = browser.find_element_by_tag_name("body")
-    no_of_pagedowns = 50
+    no_of_pagedowns = 10
     urllist = []
     while no_of_pagedowns:
         # html을 파싱하면서 image url을 배열(urlist)에 담는다

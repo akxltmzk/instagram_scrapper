@@ -13,7 +13,7 @@ $(function () {
       data: form.serialize(),
       success: function(data)
       {
-        window.location.href = '/mobile-form';
+        window.location.href = '/mobile-form'
       }
     })
   })

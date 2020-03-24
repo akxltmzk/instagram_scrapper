@@ -15,4 +15,8 @@ socket.on('getusername',(data)=>{
     'display': 'inline'
   })
 
+
+  setTimeout(function(){ 
+    window.location.href = '/intro'
+  }, 10000);
 })
