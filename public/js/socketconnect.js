@@ -1,4 +1,4 @@
-const socket = io.connect('http://localhost:3000');
+const socket = io.connect('http://192.168.89.2:3000');
 
 // get url array form server, and make image grid
 socket.on('get-url-Array',(data)=>{
@@ -24,7 +24,7 @@ socket.on('get-url-Array',(data)=>{
   }, 10000);
 })
 
-socket.on('loadingpage-active',()=>{
+socket.on('loadingpage-active',(data)=>{
   $('.loading-page').removeClass('hidden')
   $('.idle-page').addClass('hidden')
   $('.image-page').addClass('hidden')
