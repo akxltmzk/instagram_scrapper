@@ -3,8 +3,10 @@ let router = express.Router()
 
 module.exports = function (io) {
 
+  let urlArray 
+
   // socket io connect
-  io.on('connection', function (socket) {
+  io.on('connection', function (socket) {  
     console.log('socket connected!')
  })
 
@@ -23,18 +25,20 @@ module.exports = function (io) {
 
     // recieve data form app.py
     process.stdout.on('data',(data)=>{
-
+    
       let utf8 = data.toString('utf-8')
       utf8 = utf8.replace(/['\[\]]/g, '')
       let array = utf8.split(',')
 
-      console.log(array)
-    })
+      urlArray = array
+ 
+      if(urlArray.length > 0)
+        io.emit('getusername',urlArray)
 
-    res.send('done')
+      res.end()
+ 
+    })   
   })
-
-
 
   return router
 }

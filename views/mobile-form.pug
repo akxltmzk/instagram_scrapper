@@ -2,10 +2,14 @@ extends layout
 
 block content 
   .content.mobile
-    .form-wrapper 
-      form#initailize-form(action='/initialize-contents')
-        label.block(for='Instagram ID') Instagram ID :
-        input.block(type='text' id='instaID' name='instaID' value='JJong.h')
-        button(type='submit')
+    .loader-box.hidden
+      .label LOADING ...
+      .loader Loading
+    .contents-box
+      .title INSTAGRAM SCRAPPER
+      .form-wrapper 
+        form#initailize-form(action='/initialize-contents')
+          input.block(type='text' id='instaID' name='instaID' value='jjong.h')
+          button(type='submit') START
 
     
