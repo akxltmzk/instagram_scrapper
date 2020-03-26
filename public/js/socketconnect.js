@@ -17,18 +17,16 @@ socket.on('get-url-Array',(data)=>{
     'margin': '20px',
     'display': 'inline'
   })
-
-  // back to intro page
-  setTimeout(function(){ 
-    window.location.href = '/intro'
-  }, 10000);
 })
 
-socket.on('loadingpage-active',(data)=>{
+socket.on('browser-goto-loading-page',()=>{
   $('.loading-page').removeClass('hidden')
   $('.idle-page').addClass('hidden')
   $('.image-page').addClass('hidden')
 })
 
+socket.on('broswer-goto-intro-page',()=>{
+  window.location.href = '/intro'
+})
 
 

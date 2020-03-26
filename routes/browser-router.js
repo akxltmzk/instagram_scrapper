@@ -8,12 +8,17 @@ module.exports = function (io) {
   // socket io connect
   io.on('connection', function (socket) {  
     console.log('socket connected!')
-    socket.on('loading',()=>{
-      io.emit('loadingpage-active') 
+
+    // make interaction mobile and browser
+    socket.on('goto-loading-page',()=>{
+      io.emit('browser-goto-loading-page') 
     })
+
+    socket.on('goto-intro-page',()=>{
+      io.emit('broswer-goto-intro-page') 
+    })
+
  })
-
-
 
   router.get('/intro', (req, res, next)=> {
     res.render('browser')         

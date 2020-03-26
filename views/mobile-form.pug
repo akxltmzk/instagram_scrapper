@@ -2,9 +2,6 @@ extends layout
 
 block content 
   .content.mobile
-    .loader-box.hidden
-      .label LOADING ...
-      .loader Loading
     .contents-box
       .title INSTAGRAM SCRAPPER
       .form-wrapper 
@@ -12,5 +9,16 @@ block content
           input.block(type='text' id='instaID' name='instaID' placeholder='Enter your ID')
           button(type='submit') START
 
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js')
+    .loader-box.hidden
+      .label LOADING ...
+      .loader Loading    
+
+    .control-pannel.hidden
+      .title FUNCTION SELECT
+      .form-wrapper 
+        form#downloadimage
+          button(type='submit') download image   
+        form#backtointro
+          button(type='submit') back to intro        
+
   script(src='js/index.js')
