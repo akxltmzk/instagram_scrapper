@@ -30,10 +30,53 @@ $(function () {
   })
 
   // back to intro
-  $('#backtointro').submit(function(e) {
+  $('#backtointro-form').submit(function(e) {
     e.preventDefault() 
     window.location.href = '/mobile-form'
     socket.emit('goto-intro-page')
+  })
+
+  // download instagram image in local server
+  $('#downloadimage-form').submit(function(e) {
+    e.preventDefault() 
+
+    $('#downloadimage-form button').text('downloading ...')
+
+    let form = $(this)
+    let url = form.attr('action')
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      success: function()
+      {
+        $('#downloadimage-form button').text('download image done')
+        $('#downloadimage-form button').css({'color':'red'})
+      }
+    })
+ 
+  })
+
+
+  // delete instagram image in local server
+  $('#deleteimage-form').submit(function(e) {
+    e.preventDefault() 
+
+    $('#deleteimage-form button').text('delete ...')
+
+    let form = $(this)
+    let url = form.attr('action')
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      success: function()
+      {
+        $('#deleteimage-form button').text('delete done')
+        $('#deleteimage-form button').css({'color':'red'})
+      }
+    })
+  
   })
 
 })

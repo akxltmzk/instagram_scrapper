@@ -16,9 +16,11 @@ block content
     .control-pannel.hidden
       .title FUNCTION SELECT
       .form-wrapper 
-        form#downloadimage
-          button(type='submit') download image   
-        form#backtointro
+        form#downloadimage-form(action='/download-image')
+          button(type='submit') download image  
+        form#deleteimage-form(action='/delete-image')
+          button(type='submit') delete image    
+        form#backtointro-form
           button(type='submit') back to intro        
 
   script(src='js/index.js')
