@@ -9,7 +9,7 @@ $(function () {
   $('#initailize-form').submit(function(e) {
     e.preventDefault() 
 
-    socket.emit('goto-loading-page')
+    socketemit('goto-loading-page')
 
     $('.contents-box').addClass('hidden')
     $('.loader-box').removeClass('hidden')
@@ -26,7 +26,7 @@ $(function () {
       {
         if(res == 'wrong' ){
           // browser go back to intro
-          socket.emit('goto-intro-page')
+          socketemit('goto-intro-page')
           
           $('.contents-box').removeClass('hidden')
           $('.loader-box').addClass('hidden')
@@ -36,7 +36,7 @@ $(function () {
         }
         else if(res =='private'){
           // browser go back to intro
-          socket.emit('goto-intro-page')
+          socketemit('goto-intro-page')
           $('.contents-box').removeClass('hidden')
           $('.loader-box').addClass('hidden')
           $('.control-pannel').addClass('hidden')
@@ -58,7 +58,7 @@ $(function () {
   $('#backtointro-form').submit(function(e) {
     e.preventDefault() 
     window.location.href = '/mobile-form'
-    socket.emit('goto-intro-page')
+    socketemit('goto-intro-page')
   })
 
   /*
@@ -109,3 +109,7 @@ $(function () {
   })
 
 })
+
+function socketemit(emit_str){
+  socket.emit(emit_str)
+}

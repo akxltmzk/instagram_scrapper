@@ -3,6 +3,8 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const osc = require('node-osc')
+const client = new osc.Client('127.0.0.1', 8010)
 
 let app = express()
 app.io = require('socket.io')()
@@ -10,10 +12,8 @@ app.io = require('socket.io')()
 let browser_router = require('./routes/browser-router')(app.io)
 let mobile_router = require('./routes/mobile-router')
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
-
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

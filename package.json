@@ -14,6 +14,7 @@
     "http-errors": "~1.6.3",
     "image-downloader": "^3.5.0",
     "morgan": "~1.9.1",
+    "node-osc": "^4.1.8",
     "nodemon": "^2.0.2",
     "pug": "2.0.0-beta11",
     "python-shell": "^1.0.8",

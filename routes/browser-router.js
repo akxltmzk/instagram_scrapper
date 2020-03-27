@@ -31,7 +31,6 @@ module.exports = function (io) {
     res.render('browser')         
   })
 
-
   /*
   post request from mobile
   */ 

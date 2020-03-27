@@ -7,7 +7,7 @@ block content
       p.alert 
       .form-wrapper 
         form#initailize-form(action='/initialize-contents')
-          input.block(type='text' id='instaID' name='instaID' placeholder='Enter your ID')
+          input.block(type='text' id='instaID' name='instaID' placeholder='Enter your ID' required)
           button(type='submit') START
 
     .loader-box.hidden
@@ -24,4 +24,4 @@ block content
         form#backtointro-form
           button(type='submit') back to intro        
 
-  script(src='js/index.js')
+  script(src='js/mobile.js')
