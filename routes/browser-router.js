@@ -1,6 +1,5 @@
 const express = require('express')
 const fs = require('fs')
-const request = require('request')
 const download = require('image-downloader')
 let router = express.Router()
 
