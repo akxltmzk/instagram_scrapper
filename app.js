@@ -7,8 +7,8 @@ const logger = require('morgan')
 let app = express()
 app.io = require('socket.io')()
 
-let browser_router = require('./routes/browser-router')(app.io)
-let mobile_router = require('./routes/mobile-router')
+let browser_router = require('./routes/browser-router')
+let mobile_router = require('./routes/mobile-router')(app.io)
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
