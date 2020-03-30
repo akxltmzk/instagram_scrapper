@@ -1,7 +1,6 @@
 const express = require('express')
 let router = express.Router()
 const fs = require('fs')
-const request = require('request')
 const download = require('image-downloader')
 
 router.get('/mobile-form', (req, res, next)=> {
