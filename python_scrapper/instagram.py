@@ -16,7 +16,8 @@ insta_username = "01066631693"
 insta_password = "haha8269^^"
 login_url = 'https://www.instagram.com/accounts/login/?source=auth_switcher'
 instagram_url = f'https://www.instagram.com/'
-scroll_ount = 50
+test = True
+scroll_count = 1
 
 browser =  webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\chromedriver.exe')
 
@@ -32,20 +33,23 @@ def gallery_url(_username):
     return urllist
 
 def instagram_login(_username):
-
-    browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
-    browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
-    browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)
-    browser.find_element_by_xpath("//button[@name='login']").click()
-    time.sleep(7)
-    browser.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
+    if test == False :
+        global scroll_count 
+        scroll_count = 50
+        browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
+        browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
+        browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)
+        browser.find_element_by_xpath("//button[@name='login']").click()
+        time.sleep(7)
+        browser.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
 
 
     browser.get(instagram_url + _username)
 
 def browserscrolldown():
+    global scroll_count
     elem = browser.find_element_by_tag_name("body")
-    no_of_pagedowns = scroll_ount
+    no_of_pagedowns = scroll_count
     urllist = []
     
     html = browser.page_source

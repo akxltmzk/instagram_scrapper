@@ -3,8 +3,6 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const osc = require('node-osc')
-const client = new osc.Client('127.0.0.1', 8010)
 
 let app = express()
 app.io = require('socket.io')()
