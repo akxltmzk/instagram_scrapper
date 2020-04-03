@@ -6,7 +6,7 @@ $(function () {
   start instagram image scrapper
   */ 
 
-  $('#initailize-form').submit(function(e) {
+  $('#initialize-form').submit(function(e) {
     e.preventDefault() 
 
     socketemit('goto-loading-page')

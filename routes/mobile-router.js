@@ -1,20 +1,18 @@
 const express = require('express')
-let router = express.Router()
+const download = require('image-downloader') 
 const fs = require('fs')
-const download = require('image-downloader')
+let router = express.Router()
+
+const { 
+  python_scrapping
+  } = require('../controller/scrapping')
+
+let urlArray = ''
 
 module.exports = function (io) {
-
-  router.get('/mobile-form', (req, res, next)=> {
-    res.render('mobile-form')       
-  })
-
-
-  let urlArray = ''
-
-  /*
-  socket io connect
-  */ 
+    /*
+    socket io connect
+    */ 
   io.on('connection', function (socket) {  
 
     console.log('socket connected!')
@@ -26,46 +24,30 @@ module.exports = function (io) {
     socket.on('goto-intro-page',()=>{
       io.emit('broswer-goto-intro-page') 
     })
- })
+  })
+
+  /*
+  get request from browser
+  */ 
+  router.get('/mobile-form', (req, res, next)=> {
+    res.render('mobile-form')  
+  })
+
   /*
   post request from mobile
   */ 
- router.post('/initialize-contents',(req,res,next)=>{
-
-  // get user instagram ID
-  let instaID = req.body.instaID
-  
-  // active app.py
-  let spawn = require("child_process").spawn
-  let process = spawn('python',["python_scrapper/app.py",instaID.toString()] ) 
-
-  // recieve data form app.py
-  process.stdout.on('data',(data)=>{
-    let utf8 = data.toString('utf-8')
-    
-    // if account is private
-    if(data.toString() == Buffer.from("private\r\n", 'ascii')){
-      res.send('private')
-    }
-
-    //if account doesnt exist
-    else if (utf8 == Buffer.from("wrong\r\n", 'ascii')){
-      res.send('wrong')
-    }
-
-    // account is public
+  router.post('/initialize-contents',async (req,res,next)=>{
+    // get user instagram ID
+    let instaID = req.body.instaID
+    let result = await python_scrapping(instaID)
+    if(result=='private'|| result == 'wrong')
+      res.send(result)
     else{
-      utf8 = utf8.replace(/['\[\]]/g, '')
-      let array = utf8.split(',')
-
-      urlArray = array
-
-      if(urlArray.length > 0)
-        io.emit('get-url-Array',urlArray)
-      res.end()
+       io.emit('get-url-Array',result)
+       urlArray = result
+       res.end()
     }
-  })   
-})
+  })
 
   router.post('/download-image', (req,res)=>{
     urlArray.forEach(async(element) =>{ 
