@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -17,6 +19,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.use((req,res,next)=>{
+  res.locals={
+    socket_ip : process.env.SOCKET_IP  
+  }
+  next()
+})
 
 app.use('/', browser_router)
 app.use('/', mobile_router)

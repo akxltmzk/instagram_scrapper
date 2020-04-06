@@ -1,6 +1,7 @@
 extends layout
 
 block content 
+  p.hidden#ip=socket_ip
   .content.mobile
     .contents-box
       .title INSTAGRAM SCRAPPER
@@ -17,6 +18,7 @@ block content
     .control-pannel.hidden
       .title FUNCTION SELECT
       .form-wrapper 
+        button#watch-vr-form(type='submit') watch on vr 
         form#downloadimage-form(action='/download-image')
           button(type='submit') download image  
         form#deleteimage-form(action='/delete-image')

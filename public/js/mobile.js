@@ -1,4 +1,4 @@
-const socket = io.connect('http://192.168.89.2:3000');
+const socket = io.connect($('#ip').text())
 
 $(function () {
 
@@ -51,14 +51,14 @@ $(function () {
     })
   })
 
-  /*  
-  back to intro
+  /*
+  wath vr
   */
+  $('#watch-vr-form').click(()=>{
+    socketemit('goto-vr-experience')
+    $('#watch-vr-form').text('vr ready')
+    $('#watch-vr-form').css({'color':'red'})
 
-  $('#backtointro-form').submit(function(e) {
-    e.preventDefault() 
-    window.location.href = '/mobile-form'
-    socketemit('goto-intro-page')
   })
 
   /*
@@ -108,6 +108,14 @@ $(function () {
   
   })
 
+  /*  
+  back to intro
+  */
+ $('#backtointro-form').submit(function(e) {
+  e.preventDefault() 
+  window.location.href = '/mobile-form'
+  socketemit('goto-intro-page')
+})
 })
 
 function socketemit(emit_str){

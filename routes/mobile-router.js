@@ -1,11 +1,15 @@
-const express = require('express')
-const download = require('image-downloader') 
-const fs = require('fs')
+const express = require('express') 
 let router = express.Router()
 
 const { 
   python_scrapping
   } = require('../controller/scrapping')
+
+
+const { 
+  download_image,
+  delete_image
+  } = require('../controller/download')
 
 let urlArray = ''
 
@@ -17,12 +21,29 @@ module.exports = function (io) {
 
     console.log('socket connected!')
 
+    /*-------------------------------------------------------------------------------- */
+    /*-----------------------------socketio - web------------------------------------- */
+    /*-------------------------------------------------------------------------------- */
+
     // make interaction mobile and browser 
     socket.on('goto-loading-page',()=>{
       io.emit('browser-goto-loading-page') 
     })
     socket.on('goto-intro-page',()=>{
       io.emit('broswer-goto-intro-page') 
+    })
+
+    /*-------------------------------------------------------------------------------- */
+    /*-----------------------------socketio - unity----------------------------------- */
+    /*-------------------------------------------------------------------------------- */
+
+    socket.on('user_name',async (data)=>{  
+      let result = await python_scrapping(data.username)
+      io.emit('image_url_array',{'data':result})
+    })
+
+    socket.on('goto-vr-experience',async (data)=>{  
+      console.log('test')
     })
   })
 
@@ -50,29 +71,14 @@ module.exports = function (io) {
   })
 
   router.post('/download-image', (req,res)=>{
-    urlArray.forEach(async(element) =>{ 
-      const options = {
-        url: element,
-        dest: 'image-data/'
-      }
-      try {
-        const { filename, image } = await download.image(options)
-      } catch (e) {
-        console.error(e)
-      }
-    })
+    download_image(urlArray)
     res.end()
   })
 
   router.post('/delete-image', (req,res)=>{
-    var FOLDER_PATH = 'image-data/'
-    var files = fs.readdirSync(FOLDER_PATH)
-    files.forEach(element => {
-        fs.unlinkSync(FOLDER_PATH + "/" + element)
-    })
+    delete_image()
     res.end()
   })
-
 
  return router
 }

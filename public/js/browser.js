@@ -1,8 +1,9 @@
-const socket = io.connect('http://192.168.89.2:3000');
+const socket = io.connect($('#ip').text())
 
 // get url array form server, and make image grid
 socket.on('get-url-Array',(data)=>{
 
+ 
   $('.loading-page').addClass('hidden')
   $('.idle-page').addClass('hidden')
   $('.image-page').removeClass('hidden')
