@@ -67,11 +67,12 @@ $(function () {
   window.location.href = '/mobile-form'
   socketemit('goto-intro-page')
   socketemit('goto-intro-unity')
+  $('#backtointro-form').off('click');
 })
 
   if(tool == 'VR'){
     $('#downloadimage-form').addClass('hidden')
-    $('#deleteimage-form').addClass('hidden')
+    $('#deleteimage-form button').addClass('hidden')
     return
   } 
 

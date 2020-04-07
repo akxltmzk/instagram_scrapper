@@ -29,7 +29,8 @@ module.exports = function (io) {
     socket.on('goto-loading-page',()=>{
       io.emit('browser-goto-loading-page') 
     })
-    socket.on('goto-intro-page',()=>{
+    socket.on('goto-intro-page',async()=>{
+      await delete_image()
       io.emit('broswer-goto-intro-page') 
     })
 
@@ -38,7 +39,6 @@ module.exports = function (io) {
     /*-------------------------------------------------------------------------------- */
 
     socket.on('goto-vr-experience',async (data)=>{  
-      await delete_image()
       await download_image(urlArray)
       io.emit('vr-start-signal')
     })

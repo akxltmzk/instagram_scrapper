@@ -7,12 +7,14 @@ public class Image : MonoBehaviour
 {
     public string myPath = "C:\\Users\\dohyunoo\\Desktop\\scrapping_image\\";
     private bool startExperience = false;
-
+    private Texture texture_idle;
+    private Renderer renderer;
 
     private void Start()
     {
         this.transform.parent = GameObject.FindWithTag("Image_Container").transform;
- 
+        renderer = GetComponent<Renderer>();
+        texture_idle = renderer.material.mainTexture;
     }
 
 
@@ -28,7 +30,7 @@ public class Image : MonoBehaviour
                 return;
 
             startExperience = false;
-
+            renderer.material.mainTexture = texture_idle;
         }
 
     }
@@ -38,14 +40,14 @@ public class Image : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         string[] filePaths = Directory.GetFiles(myPath, "*.jpg");
-        Renderer render = GetComponent<Renderer>();
-        StartCoroutine(Setting_image(render, filePaths[Random.Range(0,filePaths.Length)]));
+       
+        StartCoroutine(Setting_image(filePaths[Random.Range(0,filePaths.Length)]));
 
         yield return null;
         
     }
 
-    private IEnumerator Setting_image(Renderer _renderer, string _path)
+    private IEnumerator Setting_image(string _path)
     {
         WWW www = new WWW("file://" + _path);
 
@@ -53,7 +55,7 @@ public class Image : MonoBehaviour
 
         Texture2D new_texture = new Texture2D(512, 512);
         www.LoadImageIntoTexture(new_texture);
-        _renderer.material.mainTexture = new_texture;
+        renderer.material.mainTexture = new_texture;
     }
 
 }

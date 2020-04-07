@@ -592,7 +592,7 @@ MonoBehaviour:
   startExperience: 0
   image_prefab:
   - {fileID: 3979940342294265305, guid: 7e860ca2c14d036419b3c1cb684d614e, type: 3}
-  gridX: 10
-  gridY: 10
+  gridX: 20
+  gridY: 20
   gridSpacingOffset: 10
-  gridOrigin: {x: -45, y: -35, z: 70}
+  gridOrigin: {x: -90, y: -100, z: 100}
