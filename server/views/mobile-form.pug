@@ -1,0 +1,30 @@
+extends layout
+
+block content 
+  p.hidden#ip=socket_ip
+  p.hidden#tool=tool
+  .content.mobile
+    .contents-box
+      .title INSTAGRAM SCRAPPER
+      p.alert 
+      .form-wrapper 
+        form#initialize-form(action='/initialize-contents')
+          input.block(type='text' id='instaID' name='instaID' placeholder='Enter your ID' required)
+          button(type='submit') START
+
+    .loader-box.hidden
+      .label LOADING ...
+      .loader Loading    
+
+    .control-pannel.hidden
+      .title FUNCTION SELECT
+      .form-wrapper 
+        button#watch-vr-form(type='submit') watch on vr 
+        form#downloadimage-form(action='/download-image')
+          button(type='submit') download image  
+        form#deleteimage-form(action='/delete-image')
+          button(type='submit') delete image    
+        form#backtointro-form
+          button(type='submit') back to intro        
+
+  script(src='js/mobile.js')
