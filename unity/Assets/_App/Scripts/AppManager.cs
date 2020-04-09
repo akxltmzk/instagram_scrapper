@@ -7,42 +7,37 @@ using UnityEngine.UI;
 public class AppManager : Singleton<AppManager>
 {
 
+    public Camera mainCamera;
+    public List<GameObject> image_array = new List<GameObject>();
+    public GameObject images_box_prefab;
+    private int copy_Count = 50;
+    private int instantiage_gap = 11;
+
+
+
     [SerializeField]
     public bool startExperience = false;
-    public GameObject[] image_prefab;
-
-    [Header("Grid")]
-    public int gridX;
-    public int gridY;
-    public float gridSpacingOffset = 1f;
-    public Vector3 gridOrigin = Vector3.zero;
 
     void Start()
     {
-        SpawnGrid();
-    }
-
-    void SpawnGrid()
-    {
-        for (int x = 0; x < gridX; x++)
-        {
-            for (int y = 0; y < gridY; y++)
-            {
-                Vector3 spawnPosition = new Vector3(x * gridSpacingOffset, y * gridSpacingOffset, 0) + gridOrigin;
-                PickAndSpawn(spawnPosition, Quaternion.Euler(-270, 90, -90));
-            }
+        for (int i = 0; i < copy_Count; i++) {
+            GameObject prefab = Instantiate(images_box_prefab);
+            prefab.transform.position = new Vector3(0, -i * instantiage_gap, 0);
 
         }
+
     }
 
-    void PickAndSpawn(Vector3 positionToSpawn, Quaternion rotationToSpawn) {
-        int randomIndex = Random.Range(0, image_prefab.Length);
-        Instantiate(image_prefab[randomIndex], positionToSpawn, rotationToSpawn);
     
-    }
-
+    // start with socket signal
     public void Start_Instagram_World()
     {
         startExperience = true;
+    }
+
+    public void FindAllImagePlane() {
+        GameObject[] first_images_box_image = GameObject.FindGameObjectsWithTag("Image");
+        foreach (GameObject i in first_images_box_image)      
+            image_array.Add(i);
     }
 }

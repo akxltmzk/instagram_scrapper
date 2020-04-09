@@ -58,4 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Assets
+Assets/*
+!Assets/_App
+
 Assets/_App/Resources/Video
