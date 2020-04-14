@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CameraManager : Singleton<CameraManager>
 {
-    Ray RayOrigin;
-    RaycastHit HitInfo;
+    #region "Varable"
+
     public Color[] camera_solid_color;
-    private float timer;
-    private int timer_change_gap = 3;
-    private int timer_change_count = 0;
+    public float timer;
 
     private GameObject currentRayObject;
     private GameObject previousRayObject;
+    private RaycastHit hitInfo;
+    private int timer_change_gap = 3;
+    private int timer_change_count = 0;
+
+    #endregion
 
     void Update()
     {
@@ -22,11 +25,9 @@ public class CameraManager : Singleton<CameraManager>
 
     private void RayCastFromCameraCenter() {
 
-        RayOrigin = Camera.main.ViewportPointToRay(new Vector3(0, 0, 0));
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out HitInfo, 30.0f))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 30.0f))
         {
-            GameObject objectHit = HitInfo.transform.gameObject;
+            GameObject objectHit = hitInfo.transform.gameObject;
 
             if (objectHit.tag == "Ready_bar")
             {
@@ -41,11 +42,11 @@ public class CameraManager : Singleton<CameraManager>
                     previousRayObject.GetComponent<Image>().BacktoStartPosition();
 
                 currentRayObject.GetComponent<Image>().RaycstedFromCamera();
-
-                previousRayObject =currentRayObject;
+                previousRayObject = currentRayObject;
             }
         }
-        else {
+        else 
+        {
             UIManager.Instance.gazing_down();
         }
     }

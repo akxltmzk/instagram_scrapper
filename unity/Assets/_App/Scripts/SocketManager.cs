@@ -16,10 +16,11 @@ public class SocketManager : Singleton<SocketManager>
 
     public void Start_Instagram_World(SocketIOEvent e)
     {
-        AppManager.Instance.Start_Instagram_World();
+        AppManager.Instance.Import_Instagram_Image();
     }
 
     public void SceneReset(SocketIOEvent e) {
-        AppManager.Instance.instagram_image_ready = false;
+        AppManager.Instance.ResetApp();
+
     }
 }

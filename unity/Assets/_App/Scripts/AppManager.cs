@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 
 public class AppManager : Singleton<AppManager>
-{   
+{
+    #region "Varable"
+
     [Header("Other GameObject")]
     public GameObject images_box_prefab;
-    public GameObject Image_Container;
-    public GameObject imsgeTrigger;
+    public GameObject image_container;
+    public GameObject image_trigger;
 
     [Header("Image_grid")]
     public int copy_Count;
@@ -22,35 +24,28 @@ public class AppManager : Singleton<AppManager>
     [HideInInspector]
     public List<GameObject> image_array = new List<GameObject>();
 
+    // private
+    private Vector3 image_container_Start_Position;
+    private Vector3 image_trigger_Start_Position;
+
+    #endregion
+
+
     void Start()
-    {     
-       Instantiate_Image_Grid();  
+    {
+        image_container_Start_Position = image_container.transform.position;
+        image_trigger_Start_Position = image_trigger.transform.position;
+        Instantiate_Image_Grid();
+        UIManager.Instance.UICanvas.SetActive(false);
     }
 
     private void Update()
     {
-        if (isExperienceStart)
-        {
-            Image_Container.transform.position += Vector3.back * Time.deltaTime;
-            imsgeTrigger.transform.position += Vector3.forward * Time.deltaTime;
-        }
+        MoveContainer();
     }
 
-
-    // start with socket signal
-    public void Start_Instagram_World()
+    private void Instantiate_Image_Grid()
     {
-        instagram_image_ready = true;
-        UIManager.Instance.UICanvas.SetActive(true);
-    }
-
-    public void FindAllImagePlane() {
-        GameObject[] first_images_box_image = GameObject.FindGameObjectsWithTag("Image");
-        foreach (GameObject i in first_images_box_image)      
-            image_array.Add(i);
-    }
-
-    private void Instantiate_Image_Grid() {
         for (int i = 0; i < copy_Count; i++)
         {
             GameObject prefab = Instantiate(images_box_prefab);
@@ -58,7 +53,31 @@ public class AppManager : Singleton<AppManager>
         }
     }
 
+    private void MoveContainer() {
+        if (isExperienceStart)
+        {
+            image_container.transform.position += Vector3.back * Time.deltaTime;
+            image_trigger.transform.position += Vector3.forward * Time.deltaTime;
+        }
+    }
+
+    // start with socket signal
+    public void Import_Instagram_Image()
+    {
+        instagram_image_ready = true;
+        UIManager.Instance.UICanvas.SetActive(true);
+    }
+
     public void SetActiveImageTriggerCollider() {
-        imsgeTrigger.GetComponent<Collider>().enabled = true;
+        image_trigger.GetComponent<Collider>().enabled = true;
+    }
+
+    public void ResetApp() {
+        image_trigger.GetComponent<Collider>().enabled = false;
+        instagram_image_ready = false;
+        isExperienceStart = false;
+        image_container.transform.position = image_container_Start_Position;
+        image_trigger.transform.position = image_trigger_Start_Position;
+        CameraManager.Instance.timer = 0;
     }
 }

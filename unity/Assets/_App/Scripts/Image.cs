@@ -37,8 +37,10 @@ public class Image : MonoBehaviour
             if (!isImport_instagram_image)
                 return;
 
+            // reset
             isImport_instagram_image = false;
             renderer.material.mainTexture = texture_idle;
+            BacktoStartPosition();
         }
     }
 
