@@ -7,6 +7,9 @@ TagManager:
   - SpawnPos
   - Image_Container
   - Image
+  - Ready_bar
+  - UIPosition
+  - ImageRayPosition
   layers:
   - Default
   - TransparentFX

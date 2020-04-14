@@ -91,20 +91,20 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="MSBuildForUnity">
       <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/MSBuildForUnity.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.WindowsMR.Editor">
       <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/Unity.XR.WindowsMR.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.XR.WindowsMR">
       <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/Unity.XR.WindowsMR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/2019.2.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

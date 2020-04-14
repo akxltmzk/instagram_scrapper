@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "SwZP8OrRa8GSEThMq6CjvGrM9M9X7iFllW6tQdSqYug9SnTxUS1XuXXnUy0DBr1chHYEIlWubZ/Ru74Hi7UUsw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dohyunoo\\Documents\\_project\\instagram_scrapper\\unity\\Assets\\instagram_scrapper.Dependencies.msb4u.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dohyunoo\\.nuget\\packages\\microsoft.windows.mixedreality.dotnetwinrt\\0.5.1045\\microsoft.windows.mixedreality.dotnetwinrt.0.5.1045.nupkg.sha512",
+    "C:\\Users\\dohyunoo\\.nuget\\packages\\msbuildforunity\\0.9.1-123842\\msbuildforunity.0.9.1-123842.nupkg.sha512",
+    "C:\\Users\\dohyunoo\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

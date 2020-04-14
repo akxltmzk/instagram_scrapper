@@ -2,7 +2,7 @@ const socket = io.connect($('#ip').text())
 
 $(function () {
   const tool = $('#tool').text()
-  
+
   //start instagram image scrapper  
   $('#initialize-form').submit(function(e) {
     e.preventDefault() 

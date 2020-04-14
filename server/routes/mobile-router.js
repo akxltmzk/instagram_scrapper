@@ -52,6 +52,7 @@ module.exports = function (io) {
   get request from browser
   */ 
   router.get('/mobile-form', (req, res, next)=> {
+    io.emit('vr-start-signal')
     res.render('mobile-form')  
   })
 

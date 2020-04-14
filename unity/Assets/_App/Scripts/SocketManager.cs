@@ -20,6 +20,6 @@ public class SocketManager : Singleton<SocketManager>
     }
 
     public void SceneReset(SocketIOEvent e) {
-        AppManager.Instance.startExperience = false;
+        AppManager.Instance.instagram_image_ready = false;
     }
 }
