@@ -23,6 +23,12 @@ public class CameraManager : Singleton<CameraManager>
         Camera_background_color_change();
     }
 
+    public void Camera_Reset()
+    {
+        GetComponent<Camera>().backgroundColor = Color.black;
+        timer = 0;
+    }
+
     private void RayCastFromCameraCenter() {
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 30.0f))

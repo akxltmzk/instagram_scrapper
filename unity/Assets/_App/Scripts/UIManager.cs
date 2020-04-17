@@ -56,4 +56,9 @@ public class UIManager : Singleton<UIManager>
         UICanvas.transform.rotation = Quaternion.Lerp(UICanvas.transform.rotation, UIPosition_leader.rotation, Time.deltaTime *0.5f );
     }
 
+    public void UICanvas_Reset() {
+        initializing_bar_size.localScale = new Vector3(0, 0.1f, 0.1f);
+        UICanvas.SetActive(false);
+    }
+
 }

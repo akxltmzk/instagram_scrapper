@@ -78,6 +78,8 @@ public class AppManager : Singleton<AppManager>
         isExperienceStart = false;
         image_container.transform.position = image_container_Start_Position;
         image_trigger.transform.position = image_trigger_Start_Position;
-        CameraManager.Instance.timer = 0;
+
+        CameraManager.Instance.Camera_Reset();
+        UIManager.Instance.UICanvas_Reset();
     }
 }

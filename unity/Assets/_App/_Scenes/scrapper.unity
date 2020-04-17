@@ -921,6 +921,7 @@ MonoBehaviour:
   - {r: 1, g: 0.9012156, b: 0.7490196, a: 0}
   - {r: 1, g: 0.7490196, b: 0.80089605, a: 0}
   - {r: 0.9995716, g: 0.8820755, b: 1, a: 0}
+  timer: 0
 --- !u!1 &1031679625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,8 +1509,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   images_box_prefab: {fileID: 8998182652297129678, guid: d7cf256a646b2a740ad3fa2ecfbb578e,
     type: 3}
-  Image_Container: {fileID: 1586991572}
-  imsgeTrigger: {fileID: 1207724903}
+  image_container: {fileID: 1586991572}
+  image_trigger: {fileID: 1207724903}
   copy_Count: 50
   instantiage_gap: 11
   instagram_image_ready: 0
