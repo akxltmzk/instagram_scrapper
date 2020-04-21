@@ -1,27 +1,21 @@
-/* animation */
 
-
-.content.mobile .loader-box{
-  position: absolute;
-  width: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  text-align: center;
+@font-face {
+  font-family: scrapper-font-bold;
+  src: url('../fonts/Noto_Sans_KR/NotoSansKR-Bold.otf');
 }
+/*------------------------------------------------------------------------ */
+/*----------------------------- mobile ----------------------------------- */
+/*------------------------------------------------------------------------ */
 
-.content.mobile .loader-box .label{
-  margin-bottom: 30%;
-  font-size: 40px;
-}
+
+/*---------------------------- data collecting --------------------------- */
 
 .content.mobile .loader {
   color: #000000;
-  font-size: 30px;
+  font-size: 10px;
   margin: 100px auto;
-  width: 1em;
-  height: 1em;
+  width: 0.5em;
+  height: 0.5em;
   border-radius: 50%;
   position: relative;
   text-indent: -9999em;
@@ -86,8 +80,68 @@
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
 }
-/*
-*/
+
+/*---------------------------- timer --------------------------- */
+
+.base-timer {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 0.5px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(19, 19, 19);
+}
+
+.base-timer__path-remaining.orange {
+  color: rgb(255, 211, 130);
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: scrapper-font-bold;
+  font-size: 65px;
+}
+
+
+
+/*------------------------------------------------------------------------ */
+/*----------------------------- display ---------------------------------- */
+/*------------------------------------------------------------------------ */
 
 .sk-folding-cube {
   margin: 20px auto;

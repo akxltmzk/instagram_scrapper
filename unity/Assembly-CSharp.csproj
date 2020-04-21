@@ -65,8 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\_App\Scripts\AppManager.cs" />
     <Compile Include="Assets\_App\Scripts\CameraManager.cs" />
-    <Compile Include="Assets\_App\Scripts\Image.cs" />
-    <Compile Include="Assets\_App\Scripts\ImageTrigger.cs" />
     <Compile Include="Assets\_App\Scripts\SingleTone.cs" />
     <Compile Include="Assets\_App\Scripts\SocketManager.cs" />
     <Compile Include="Assets\_App\Scripts\UIManager.cs" />

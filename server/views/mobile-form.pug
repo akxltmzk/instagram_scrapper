@@ -4,27 +4,52 @@ block content
   p.hidden#ip=socket_ip
   p.hidden#tool=tool
   .content.mobile
-    .contents-box
-      .title INSTAGRAM SCRAPPER
-      p.alert  
+    .common_component
+      #webgl
+      .logo-wrap
+        img.logo(src='images/lab-logo.png')
+  
+    .start-box  
       .form-wrapper 
+        .start-guide
+          p Welcome to instagram 
+          p scrapper, please enter
+          p your instagram ID.
         form#initialize-form(action='/initialize-contents')
-          input.block(type='text' id='instaID' name='instaID' placeholder='Enter your ID' required)
-          button(type='submit') START
+          input.block(type='text' id='instaID' name='instaID'  placeholder='identification' required)
+          p.alert   *Only public account are available for this experience
+          button(type='submit') START   
 
     .loader-box.hidden
-      .label LOADING ...
-      .loader Loading    
+      .inform-wrapper
+        .collecting-data
+          .inform COLLECTING YOUR DATA
+          .loader Loading 
+        .hmd-guide.hidden
+          img.hmd-image(src='images/HMD.png')
+          p.ready ready!
+          p.guide-inform put on the hmd to start
+          p.guide-inform the experience
+      .cancle-wrapper  
+        button.cancle CANCLE   
 
+    //- for the vr
+    .experience-box.hidden
+      #timer 
+      .cancle-wrapper  
+        button.cancle CANCLE  
+
+    //- for the display
     .control-pannel.hidden
-      .title FUNCTION SELECT
       .form-wrapper 
-        button#watch-vr-form(type='submit') watch on vr 
         form#downloadimage-form(action='/download-image')
           button(type='submit') download image  
         form#deleteimage-form(action='/delete-image')
           button(type='submit') delete image    
         form#backtointro-form
-          button(type='submit') back to intro        
+          button.cancle(type='submit') back to intro        
 
+  script(src="js/timer.js")
   script(src='js/mobile.js')
+  script(src="js/vendor/three.min.js")
+  //- script(src="js/background.js")

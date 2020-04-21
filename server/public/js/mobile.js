@@ -1,17 +1,22 @@
 const socket = io.connect($('#ip').text())
 
 $(function () {
+
+  startTimer()
+
   const tool = $('#tool').text()
 
   //start instagram image scrapper  
   $('#initialize-form').submit(function(e) {
     e.preventDefault() 
 
-    socketemit('goto-loading-page')
+    if(tool == 'VR')
+      socketemit('account-enter')
+    else
+      socketemit('goto-loading-page')
 
-    $('.contents-box').addClass('hidden')
+    $('.start-box').addClass('hidden')
     $('.loader-box').removeClass('hidden')
-    $('.control-pannel').addClass('hidden')
 
     // send user name 
     let form = $(this)
@@ -23,27 +28,39 @@ $(function () {
       success: function(res)
       {
         if(res == 'wrong' ){
-          // browser go back to intro
-          socketemit('goto-intro-page')
+          if(tool == 'VR')
+            socketemit('account_enter_fail')
+          else
+            socketemit('goto-intro-page')
           
-          $('.contents-box').removeClass('hidden')
+          $('.start-box').removeClass('hidden')
           $('.loader-box').addClass('hidden')
-          $('.control-pannel').addClass('hidden')
+
           $('.alert').text('Account does not exist!')
 
         }
         else if(res =='private'){
-          // browser go back to intro
-          socketemit('goto-intro-page')
-          $('.contents-box').removeClass('hidden')
+          if(tool == 'VR')
+            socketemit('account_enter_fail')
+          else
+            socketemit('goto-intro-page')
+
+          $('.start-box').removeClass('hidden')
           $('.loader-box').addClass('hidden')
-          $('.control-pannel').addClass('hidden')
+
           $('.alert').text('Account is private!')
         }
-        else{            
-          $('.contents-box').addClass('hidden')
-          $('.loader-box').addClass('hidden')
-          $('.control-pannel').removeClass('hidden')
+        else{   
+          if(tool == 'VR'){       
+            socketemit('image-ready-signal')
+            $('.collecting-data').addClass('hidden')
+            $('.hmd-guide.hidden').removeClass('hidden')
+          }
+          else{             
+            $('.start-box').addClass('hidden')
+            $('.loader-box').addClass('hidden')
+            $('.control-pannel').removeClass('hidden')
+          }
         }
       }
     })
@@ -62,13 +79,20 @@ $(function () {
   })
 
   // back to intro
- $('#backtointro-form').submit(function(e) {
-  e.preventDefault() 
-  window.location.href = '/mobile-form'
-  socketemit('goto-intro-page')
-  socketemit('goto-intro-unity')
-  $('#backtointro-form').off('click');
-})
+ $('.cancle').click(function(e) {
+    e.preventDefault() 
+    
+    if(tool == 'VR')    
+      socketemit('finish-signal') 
+    else
+      socketemit('goto-intro-page')
+
+    window.location.href = '/mobile-form'
+
+    
+    $('#backtointro-form').off('click')
+  })
+
 
   if(tool == 'VR'){
     $('#downloadimage-form').addClass('hidden')
@@ -126,9 +150,10 @@ $(function () {
 })
 
 /*========================================================= */
-/*==================== NORMAL FUNC ======================== */
+/*========================= FUNC ========================== */
 /*========================================================= */
 
 function socketemit(emit_str){
   socket.emit(emit_str)
 }
+

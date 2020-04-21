@@ -16,7 +16,7 @@ insta_username = "01066631693"
 insta_password = "haha8269^^"
 login_url = 'https://www.instagram.com/accounts/login/?source=auth_switcher'
 instagram_url = f'https://www.instagram.com/'
-test = False
+test = True
 scroll_count = 1
 
 browser =  webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\chromedriver.exe')

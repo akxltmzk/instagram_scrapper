@@ -30,7 +30,6 @@ module.exports = function (io) {
       io.emit('browser-goto-loading-page') 
     })
     socket.on('goto-intro-page',async()=>{
-      await delete_image()
       io.emit('broswer-goto-intro-page') 
     })
 
@@ -38,21 +37,35 @@ module.exports = function (io) {
     /*-----------------------------socketio - unity----------------------------------- */
     /*-------------------------------------------------------------------------------- */
 
-    socket.on('goto-vr-experience',async (data)=>{  
-      await download_image(urlArray)
-      io.emit('vr-start-signal')
+    socket.on('account-enter',async (data)=>{  
+      io.emit('vr-account-enter')
     })
 
-    socket.on('goto-intro-unity',async (data)=>{  
+    socket.on('account_enter_fail',async (data)=>{  
+      io.emit('vr-account_enter_fail')
+    })
+
+
+    socket.on('image-ready-signal',async (data)=>{  
+      await download_image(urlArray)
+      io.emit('vr-image-ready-signal')
+    })
+
+
+    socket.on('finish-signal',async (data)=>{  
+      await delete_image(urlArray)
       io.emit('vr-finish-signal')
     })
   })
+
+
+
+
 
   /*
   get request from browser
   */ 
   router.get('/mobile-form', (req, res, next)=> {
-    io.emit('vr-start-signal')
     res.render('mobile-form')  
   })
 
@@ -66,7 +79,9 @@ module.exports = function (io) {
     if(result=='private'|| result == 'wrong')
       res.send(result)
     else{
-       io.emit('get-url-Array',result)
+       if(process.env.TOOL != 'VR')
+         io.emit('get-url-Array',result)
+
        urlArray = result
        res.end()
     }

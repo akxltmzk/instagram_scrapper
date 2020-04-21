@@ -5,11 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnPos
-  - Image_Container
-  - Image
   - Ready_bar
   - UIPosition
-  - ImageRayPosition
+  - Start_Target
   layers:
   - Default
   - TransparentFX

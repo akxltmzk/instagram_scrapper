@@ -1,5 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
 
+/*---------------------------------------------------------------------------- */
+/*----------------------------------- helper --------------------------------- */
+/*---------------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+@font-face {
+  font-family: scrapper-font;
+  src: url('../fonts/Noto_Sans_KR/NotoSansKR-Regular.otf');
+}
+@font-face {
+  font-family: scrapper-font-bold;
+  src: url('../fonts/Noto_Sans_KR/NotoSansKR-Bold.otf');
+}
 *,
 *:after,
 *:before {
@@ -47,56 +59,166 @@ ul{list-style-type: none;}
 .visible{ visibility: visible; opacity: 1; transition: visibility 0s, opacity 0.3s linear;}
 .invisible{visibility: hidden; opacity : 0;}
 
-/*----------------------------------- mobile---------------------------------- */
+text {  font-family: scrapper-font;}
+/*---------------------------------------------------------------------------- */
+/*----------------------------------- mobile --------------------------------- */
+/*---------------------------------------------------------------------------- */
 
 .content.mobile{
   width: 100%;
-  height: 100vh;
-  /* background-image: url('../img/mobile-bg.jpg');
-  background-size:100% 100vh; */
+  height: 80vh;
 }
 
-.content.mobile .contents-box,
-.content.mobile .control-pannel{
+.content.mobile .common_component #webgl{
+  position: fixed;
+  margin:0;
+  padding :0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.35;
+}
+
+.content.mobile .common_component .logo-wrap{
+  text-align: left;
+}
+
+.content.mobile .common_component .logo-wrap .logo{
+  margin : 10%;
+}
+.cancle-wrapper{
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}  
+
+.cancle{
+  width: 250px;
+  height: 80px;
+  background: black;
+  border: none;
+  border-radius: 80px;
+  color: white;
+  font-size: 25px;
+  font-family: scrapper-font;
+}
+/*----------------------------- start-box ----------------------------------- */
+
+.start-box {
+  position: absolute;
+
   width: 80%;
+  height: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 700;
+}
+
+.start-box  .start-guide p{
+  font-family: scrapper-font;
+  font-weight: 900;
+  font-size: 55px;
+  line-height: 10px;
+}
+
+.start-box form{
+  margin-top: 10%;
+}
+
+.start-box form input{
+  width: 65%;
+  height: 70px;
+  font-size: 25px;
+  background-color:rgba( 255, 255, 255, 0.0 );
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.start-box form .alert{
+  font-size: 15px;
+  font-family: scrapper-font;
+  font-weight: 100;
+}
+
+.start-box form button{
+  position: absolute;
+
+  background: black;
+  width: 250px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+
+  border: none;
+  border-radius: 80px;
+  color: white;
+  font-size: 25px;
+  font-family: scrapper-font;
+}
+
+/*----------------------------- loader-box ---------------------------------- */
+
+.loader-box,
+.experience-box {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  text-align: center;
+}
+
+.loader-box .inform-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
 
   text-align: center;
 }
 
-.content.mobile .title{
-  font-family: 'Kanit', sans-serif;
-  font-size: 5em;
-  margin-bottom: 20%;
+.loader-box .inform-wrapper .inform{
+  font-family: scrapper-font;
+  font-size: 20px;
+  font-style: bold;
 }
 
-.content.mobile .alert{
-  font-family: 'Kanit', sans-serif;
-  font-size: 2.5em;
-  color: rgb(243, 87, 87);
-  text-transform: uppercase;
+.loader-box .inform-wrapper .hmd-image{
+  width: 350px;
+  height: auto;
 }
 
-.content.mobile .form-wrapper input,
-.content.mobile .form-wrapper button{
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 8%;
 
+.loader-box .inform-wrapper .ready{
   text-transform: uppercase;
-  border: #000 solid 1.5px;
-  
+  font-family: scrapper-font-bold;
   font-size: 40px;
-  width: 80%;
-  height: 100px;
-
 }
 
-/*----------------------------------- bowser---------------------------------- */
+.loader-box .inform-wrapper .guide-inform{
+  text-transform: uppercase;
+  font-family: scrapper-font;
+  font-size: 20px;
+  line-height: 5px;
+}
+
+/*----------------------------- experience ----------------------------------- */
+.experience-box #timer{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+
+
+/*-------------------------------- bowser------------------------------------ */
 
 .content.browser .idle-page,
 .content.browser .loading-page{
