@@ -2,8 +2,6 @@ const socket = io.connect($('#ip').text())
 
 $(function () {
 
-  startTimer()
-
   const tool = $('#tool').text()
 
   //start instagram image scrapper  
@@ -36,7 +34,7 @@ $(function () {
           $('.start-box').removeClass('hidden')
           $('.loader-box').addClass('hidden')
 
-          $('.alert').text('Account does not exist!')
+          $('.alert').text('ACCOUNT DOESN NOT EXIST!')
 
         }
         else if(res =='private'){
@@ -48,7 +46,7 @@ $(function () {
           $('.start-box').removeClass('hidden')
           $('.loader-box').addClass('hidden')
 
-          $('.alert').text('Account is private!')
+          $('.alert').text('ACCOUNT IS PRIVATE!')
         }
         else{   
           if(tool == 'VR'){       
@@ -149,9 +147,15 @@ $(function () {
   })
 })
 
-/*========================================================= */
+socket.on('start-experience',(data)=>{
+  $('.start-box').addClass('hidden')
+  $('.loader-box').addClass('hidden')
+  $('.experience-box').removeClass('hidden')
+
+  startTimer()
+
+})
 /*========================= FUNC ========================== */
-/*========================================================= */
 
 function socketemit(emit_str){
   socket.emit(emit_str)

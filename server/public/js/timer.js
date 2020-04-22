@@ -26,6 +26,8 @@ let remainingPathColor = COLOR_CODES.info.color
 
 function onTimesUp() {
   clearInterval(timerInterval)
+  socketemit('finish-signal') 
+  window.location.href = '/mobile-form'
 }
 
 function startTimer() {

@@ -29,6 +29,7 @@ public class UIManager : Singleton<UIManager>
             UICanvas.SetActive(false);
             start_target.SetActive(false);
             gazing_timer = 4.0f;
+            SocketManager.Instance.UserReady();
         }
     }
 
