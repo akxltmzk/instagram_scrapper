@@ -55,7 +55,7 @@ module.exports = function (io) {
       io.emit('start-experience')
       console.log('test')
     })
-    
+
     socket.on('finish-signal',async (data)=>{  
       await delete_image(urlArray)
       io.emit('vr-finish-signal')

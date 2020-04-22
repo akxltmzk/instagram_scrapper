@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Valve.VR;
+
 
 public class InitScene : Singleton<InitScene>
 {
@@ -11,18 +13,24 @@ public class InitScene : Singleton<InitScene>
     [Header("Scene Transition")]
     public bool experience_on;
     public Animator scenes_animator;
+    public Animator cam_animator;
 
     [Header("Gallery")]
+    public Material originalMat;
     public GameObject container;
+
+    [Header("Scripts")]
+    public SoundManager soundManager;
+
+ 
     [HideInInspector]
     public List<Texture2D> instagram_pics = new List<Texture2D>();
     [HideInInspector]
     public List<Material> mat;
 
-    [Header("Scripts")]
-    public SoundManager soundManager;
 
     public string imageFolderPath = "C:\\Users\\dohyunoo\\Desktop\\scrapping_image";
+    public bool hmdIsMounted;
 
     #endregion
 
@@ -31,6 +39,7 @@ public class InitScene : Singleton<InitScene>
 
     void Start()
     {
+       
         // hide all pics
         foreach (Transform item in container.transform)
         {
@@ -63,6 +72,9 @@ public class InitScene : Singleton<InitScene>
             soundManager.transition_anim.SetTrigger("GoToExperience");
             soundManager.bgm_transition_in.Play();
 
+            // cam transition
+            cam_animator.SetTrigger("cam_transition");
+
             // show images tunnel
             foreach (Transform item in container.transform)
                 StartCoroutine(ManagePost(item.gameObject, true, Random.Range(0.9f, 1.9f)));
@@ -76,6 +88,9 @@ public class InitScene : Singleton<InitScene>
             soundManager.bgm_lobby.Play();
             soundManager.transition_anim.SetTrigger("GoToLobby");
             soundManager.bgm_transition_out.Play();
+
+            // cam transition
+            cam_animator.SetTrigger("cam_transition");
 
             // play animation
             scenes_animator.SetTrigger("GoToLobby");
@@ -100,6 +115,9 @@ public class InitScene : Singleton<InitScene>
 
     public IEnumerator InitGallery()
     {
+        instagram_pics.Clear();
+        mat.Clear();
+
         yield return new WaitForSeconds(2f);
 
         string[] filePaths = Directory.GetFiles(imageFolderPath, "*.jpg");
@@ -117,10 +135,9 @@ public class InitScene : Singleton<InitScene>
         // Create Material list
         foreach (Texture2D texture in instagram_pics)
         {
-            Material material = new Material(Shader.Find("Standard"));
+            Material material = new Material(Shader.Find("Valve/vr_standard"));
+            material.CopyPropertiesFromMaterial(originalMat);
             material.SetTexture("_MainTex", texture);
-            material.SetFloat("_Glossiness", 1f);
-            material.SetFloat("_SpecularHighlights", 0f);
             mat.Add(material);
         }
 

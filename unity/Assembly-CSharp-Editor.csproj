@@ -83,6 +83,9 @@
     <Compile Include="Assets\Mirza Beig\Editor Extensions\Utilities\Particle Playback\Editor\ParticlePlaybackExtensions.cs" />
     <Compile Include="Assets\Mirza Beig\Editor Extensions\Utilities\Particle Scaler\Editor\ParticleScalerEditorWindow.cs" />
     <Compile Include="Assets\Mirza Beig\Editor Extensions\Utilities\Particle Scaler\Editor\ParticleScalerExtensions.cs" />
+    <Compile Include="Assets\TheLabRenderer\Editor\ValveAutoUpdateSettings.cs" />
+    <Compile Include="Assets\TheLabRenderer\Editor\ValveMenuTools.cs" />
+    <Compile Include="Assets\TheLabRenderer\Editor\ValveShaderGUI.cs" />
     <Compile Include="Assets\VRWaterShader2\Editor\VRWS2Inspector.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/dohyunoo/Documents/_project/instagram_scrapper/unity/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

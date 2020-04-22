@@ -35,7 +35,7 @@ def gallery_url(_username):
 def instagram_login(_username):
     if test == False :
         global scroll_count 
-        scroll_count = 40
+        scroll_count = 30
         browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
         browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
         browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)

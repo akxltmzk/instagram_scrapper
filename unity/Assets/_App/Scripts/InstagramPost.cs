@@ -14,13 +14,13 @@ public class InstagramPost : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.forward * Time.deltaTime * - speed;
+        transform.position += Vector3.forward * Time.deltaTime * -speed;
     }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "limit")
-            this.transform.localPosition = new Vector3(this.transform.localPosition.x, Random.Range(21f, 23f), this.transform.localPosition.z);
+            this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, Random.Range(28f, 30f));
     }
 
 }
