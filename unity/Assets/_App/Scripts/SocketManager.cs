@@ -33,6 +33,9 @@ public class SocketManager : Singleton<SocketManager>
         UIManager.Instance.UIObject_Array[1].SetActive(false);
         UIManager.Instance.UIObject_Array[2].SetActive(true);
         UIManager.Instance.start_target.SetActive(true);
+
+
+        InitScene.Instance.StartCoroutine("InitGallery");
     }
 
     public void SceneReset(SocketIOEvent e) {
@@ -43,9 +46,13 @@ public class SocketManager : Singleton<SocketManager>
         UIManager.Instance.UIObject_Array[1].SetActive(false);
         UIManager.Instance.UIObject_Array[2].SetActive(false);
         UIManager.Instance.start_target.SetActive(false);
+
+        InitScene.Instance.experience_on = !InitScene.Instance.experience_on;
+        InitScene.Instance.ManageExperience();
     }
 
     public void UserReady() {
         socket.Emit("user-ready");
+
     }
 }

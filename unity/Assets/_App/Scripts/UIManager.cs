@@ -30,6 +30,8 @@ public class UIManager : Singleton<UIManager>
             start_target.SetActive(false);
             gazing_timer = 4.0f;
             SocketManager.Instance.UserReady();
+            InitScene.Instance.experience_on = !InitScene.Instance.experience_on;
+            InitScene.Instance.ManageExperience();
         }
     }
 

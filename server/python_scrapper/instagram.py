@@ -16,7 +16,7 @@ insta_username = "01066631693"
 insta_password = "haha8269^^"
 login_url = 'https://www.instagram.com/accounts/login/?source=auth_switcher'
 instagram_url = f'https://www.instagram.com/'
-test = True
+test = False
 scroll_count = 1
 
 browser =  webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\chromedriver.exe')
@@ -35,7 +35,7 @@ def gallery_url(_username):
 def instagram_login(_username):
     if test == False :
         global scroll_count 
-        scroll_count = 50
+        scroll_count = 40
         browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
         browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
         browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)

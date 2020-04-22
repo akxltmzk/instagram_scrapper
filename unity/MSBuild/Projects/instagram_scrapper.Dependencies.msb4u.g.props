@@ -26,9 +26,7 @@
 
   <ItemGroup>
     <!--PROJECT_REFERENCE_TEMPLATE_START-->
-    <ProjectReference Include="C:\Users\dohyunoo\Documents\_project\instagram_scrapper\unity\Assets\MixedRealityToolkit.Providers\WindowsMixedReality\Shared\DotNetAdapter\DotNetAdapter.csproj" Condition="">
-        <!--PRIVATE_REFERENCE_TEMPLATE_START--><!--PRIVATE_REFERENCE_TEMPLATE_END-->
-    </ProjectReference><ProjectReference Include="C:\Users\dohyunoo\Documents\_project\instagram_scrapper\unity\Assets\_App\SocketIO\WebsocketSharp\websocket-sharp.csproj" Condition="">
+    <ProjectReference Include="C:\Users\dohyunoo\Documents\_project\instagram_scrapper\unity\Assets\_App\SocketIO\WebsocketSharp\websocket-sharp.csproj" Condition="">
         <!--PRIVATE_REFERENCE_TEMPLATE_START--><!--PRIVATE_REFERENCE_TEMPLATE_END-->
     </ProjectReference>
     <!--PROJECT_REFERENCE_TEMPLATE_END-->

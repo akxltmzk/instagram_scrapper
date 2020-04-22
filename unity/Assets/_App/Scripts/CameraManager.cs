@@ -6,9 +6,6 @@ public class CameraManager : Singleton<CameraManager>
 {
     #region "Varable"
 
-
-    public float timer;
-
     private RaycastHit hitInfo;
 
     #endregion
@@ -21,7 +18,6 @@ public class CameraManager : Singleton<CameraManager>
     public void Camera_Reset()
     {
         GetComponent<Camera>().backgroundColor = Color.black;
-        timer = 0;
     }
 
     private void RayCastFromCameraCenter()

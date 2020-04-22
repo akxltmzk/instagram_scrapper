@@ -13,64 +13,21 @@ const fragmentShader = `
   uniform vec2 u_mouse;
   uniform float u_time;
 
-  void mainImage(out vec4 fragColor, in vec2 fragCoord);
+ 
 
-  void main(void) {
-      vec4 col;
-      mainImage(col, gl_FragCoord.xy);
-      gl_FragColor = col;
-  }
-
-  vec3 shape( in vec2 p )
-  {
-  	p *= 2.2;
-
-  	vec3 s = vec3( 0.0 );
-  	vec2 z = p;
-  	for( int i=0; i<8; i++ )
-  	{
-          // transform
-  		z += cos(z.yx + cos(z.yx + cos(z.yx+0.8*u_time) ) );
-
-          // orbit traps
-  		float d = dot( z-p, z-p );
-  		s.x += 0.54/(1.0+d);
-  		s.y += d;
-  		s.z += sin(atan(z.y-p.y,z.x-p.x));
-
-  	}
-
-  	return s / 8.0;
-  }
-
-  void mainImage( out vec4 fragColor, in vec2 fragCoord )
-  {
-  	vec2 pc = (1.8*fragCoord.xy-u_resolution.xy)/min(u_resolution.y,u_resolution.x);
-
-  	vec2 pa = pc + vec2(0.04,0.0);
-  	vec2 pb = pc + vec2(0.0,0.04);
-
-      // shape (3 times for diferentials)
-  	vec3 sc = shape( pc );
-  	vec3 sa = shape( pa );
-  	vec3 sb = shape( pb );
-
-      // color
-  	vec3 col = mix( vec3(0.076,0.075,0.080), vec3(1.518,1.600,1.499), sc.x );
-  	//col = mix( col, col.zxy, smoothstep(-0.5,0.5,cos(0.5*u_time)) );
-  	col *= 0.15*sc.y;
-  	col += 0.4*abs(sc.z) - 0.1;
-
-      // light
-  	vec3 nor = normalize( vec3( sa.x-sc.x, 0.01, sb.x-sc.x ) );
-  	float dif = clamp(0.5 + 0.5*dot( nor,vec3(0.880,0.880,0.880) ),0.0,1.0);
-  	col *= 1.072 + 0.7*dif*col;
-  	col += 0.3 * pow(nor.y,128.0);
-
-      // vignetting
-  	col *= 0.8 - 0.1*length(pc);
-
-  	fragColor = vec4( col, 1.0 );
+  void main() {
+    vec2 p=1.8*(2.0*gl_FragCoord.xy-u_resolution)/max(u_resolution.x,u_resolution.y);
+     for(int i=1;i<10;i++) {
+       vec2 newp=p;
+       float speed = 3.2; // speed control
+       newp.x+=1./float(i)*sin(float(i)*p.y+u_time/(speed)+0.3*float(i))+1.0;
+       newp.y+=1./float(i)*cos(float(i)*p.x+u_time/(speed)+0.3*float(i))-1.4;
+       p=newp;
+     }
+     vec3 colorB = vec3(0.450,0.450,0.450);
+     vec3 colorA = vec3( 0.02, 0.5*sin(2.5*p.y), 0.2*sin(p.x+p.y));
+     vec3 col = mix(colorA, colorB, 0.5);
+     gl_FragColor=vec4(col, 0.2);
   }
 `
 

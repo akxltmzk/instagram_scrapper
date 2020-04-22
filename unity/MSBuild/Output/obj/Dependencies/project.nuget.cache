@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "SwZP8OrRa8GSEThMq6CjvGrM9M9X7iFllW6tQdSqYug9SnTxUS1XuXXnUy0DBr1chHYEIlWubZ/Ru74Hi7UUsw==",
+  "dgSpecHash": "HZ+Fw3w4Q0JfgivxMpn2oqDQNtoNlrZ+7AfDIfwQCp1wpIrHNeyK7iiq/xPD/kfPAqBqEHeR50o9sEGzXpE0CQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dohyunoo\\Documents\\_project\\instagram_scrapper\\unity\\Assets\\instagram_scrapper.Dependencies.msb4u.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dohyunoo\\.nuget\\packages\\microsoft.windows.mixedreality.dotnetwinrt\\0.5.1045\\microsoft.windows.mixedreality.dotnetwinrt.0.5.1045.nupkg.sha512",
+    "C:\\Users\\dohyunoo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\dohyunoo\\.nuget\\packages\\msbuildforunity\\0.9.1-123842\\msbuildforunity.0.9.1-123842.nupkg.sha512",
-    "C:\\Users\\dohyunoo\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512"
+    "C:\\Users\\dohyunoo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
