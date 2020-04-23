@@ -18,12 +18,17 @@ public class UIManager : Singleton<UIManager>
     public GameObject start_target;
     public Text start_target_txt;
 
+    [Header("Animator")]
+    public Animator start_loading_anim;
+
+
     // private
     private float gazing_timer;
     private bool isDebug;
 
     [HideInInspector]
     public bool isLerp;
+
     #endregion
 
     #region Standard Function
@@ -52,7 +57,7 @@ public class UIManager : Singleton<UIManager>
         gazing_timer -= Time.deltaTime;
         int time = (int)(gazing_timer % 60);
         start_target_txt.text = time.ToString();
-
+        start_loading_anim.SetTrigger("loading");
         if (gazing_timer < 0)
         {        
             UICanvas.SetActive(false);
