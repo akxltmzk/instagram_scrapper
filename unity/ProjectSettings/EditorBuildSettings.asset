@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/_App/_Scenes/instascrapper.unity
-    guid: ffc3503053d46954b9d408246bcd9ad0
+    path: Assets/_App/_Scenes/GalaxyOfMemory.unity
+    guid: df880d187c90de544a8a44dd8125bda8
   m_configObjects: {}

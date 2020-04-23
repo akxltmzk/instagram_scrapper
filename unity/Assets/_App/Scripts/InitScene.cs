@@ -22,24 +22,30 @@ public class InitScene : Singleton<InitScene>
     [Header("Scripts")]
     public SoundManager soundManager;
 
- 
+    [Header("Debug Image")]
+    public List<Texture2D> debug_pics = new List<Texture2D>();
+
     [HideInInspector]
     public List<Texture2D> instagram_pics = new List<Texture2D>();
     [HideInInspector]
     public List<Material> mat;
+    [HideInInspector]
+    public string imageFolderPath;
 
-
-    public string imageFolderPath = "C:\\Users\\dohyunoo\\Desktop\\scrapping_image";
-    public bool hmdIsMounted;
+    private bool isDebug;
 
     #endregion
-
 
     #region Standard Functions
 
     void Start()
     {
-       
+        imageFolderPath = AppManager.Instance.imageFolderPath;
+        isDebug = AppManager.Instance.isDebug;
+        
+        if(isDebug)
+            StartCoroutine(InitGallery());
+
         // hide all pics
         foreach (Transform item in container.transform)
         {
@@ -50,7 +56,7 @@ public class InitScene : Singleton<InitScene>
 
     private void Update()
     {
-        if (Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("space") && isDebug)
         {
             experience_on = !experience_on;
             ManageExperience();
@@ -58,7 +64,6 @@ public class InitScene : Singleton<InitScene>
     }
 
     #endregion
-
 
     #region Transitions
 
@@ -110,36 +115,49 @@ public class InitScene : Singleton<InitScene>
 
     #endregion
 
-
     #region Gallery
 
     public IEnumerator InitGallery()
     {
-        instagram_pics.Clear();
-        mat.Clear();
+        
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        string[] filePaths = Directory.GetFiles(imageFolderPath, "*.jpg");
-
-        foreach (string path in filePaths)
+        if (!isDebug)
         {
-            WWW www = new WWW("file://" + path);
-            yield return www;
-            Texture2D new_texture = new Texture2D(512, 512);
-            www.LoadImageIntoTexture(new_texture);
-            instagram_pics.Add(new_texture);
+            ClearGallery();
+            string[] filePaths = Directory.GetFiles(imageFolderPath, "*.jpg");
+
+            foreach (string path in filePaths)
+            {
+                WWW www = new WWW("file://" + path);
+                yield return www;
+                Texture2D new_texture = new Texture2D(512, 512);
+                www.LoadImageIntoTexture(new_texture);
+                instagram_pics.Add(new_texture);
+            }
+
+
+            // Create Material list
+            foreach (Texture2D texture in instagram_pics)
+            {
+                Material material = new Material(Shader.Find("Valve/vr_standard"));
+                material.CopyPropertiesFromMaterial(originalMat);
+                material.SetTexture("_MainTex", texture);
+                mat.Add(material);
+            }
+        }
+        else {
+
+            foreach (Texture2D texture in debug_pics)
+            {
+                Material material = new Material(Shader.Find("Valve/vr_standard"));
+                material.CopyPropertiesFromMaterial(originalMat);
+                material.SetTexture("_MainTex", texture);
+                mat.Add(material);
+            }
         }
 
-
-        // Create Material list
-        foreach (Texture2D texture in instagram_pics)
-        {
-            Material material = new Material(Shader.Find("Valve/vr_standard"));
-            material.CopyPropertiesFromMaterial(originalMat);
-            material.SetTexture("_MainTex", texture);
-            mat.Add(material);
-        }
 
         // Randomly set material
         foreach (Transform item in container.transform)
@@ -154,8 +172,8 @@ public class InitScene : Singleton<InitScene>
 
     public void ClearGallery()
     {
-        //mat.Clear();
-        //instagram_pics.Clear();
+        instagram_pics.Clear();
+        mat.Clear();
     }
 
     #endregion

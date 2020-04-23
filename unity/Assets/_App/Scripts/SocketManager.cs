@@ -7,6 +7,7 @@ using SocketIO;
 public class SocketManager : Singleton<SocketManager>
 {
     public SocketIOComponent socket;
+    public bool isUserReady = false;
 
     public void Start()
     {
@@ -47,12 +48,16 @@ public class SocketManager : Singleton<SocketManager>
         UIManager.Instance.UIObject_Array[2].SetActive(false);
         UIManager.Instance.start_target.SetActive(false);
 
-        InitScene.Instance.experience_on = !InitScene.Instance.experience_on;
-        InitScene.Instance.ManageExperience();
+        if (isUserReady)
+        {
+            InitScene.Instance.experience_on = !InitScene.Instance.experience_on;
+            InitScene.Instance.ManageExperience();
+        }
+        isUserReady = false;
     }
 
     public void UserReady() {
         socket.Emit("user-ready");
-
+        isUserReady = true;
     }
 }

@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class CameraManager : Singleton<CameraManager>
 {
-    #region "Varable"
-
+    #region Variable
     private RaycastHit hitInfo;
-
+    private float raycast_distance;
     #endregion
+
+    #region Standard Function
+
+    private void Start()
+    {
+        raycast_distance = AppManager.Instance.raycast_distance;
+    }
 
     void Update()
     {
         RayCastFromCameraCenter();
     }
 
-    public void Camera_Reset()
-    {
-        GetComponent<Camera>().backgroundColor = Color.black;
-    }
+    #endregion
+
+    #region Camera RayCast
 
     private void RayCastFromCameraCenter()
     {
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100f))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, raycast_distance))
         {
             GameObject objectHit = hitInfo.transform.gameObject;
             if (objectHit.tag == "Start_Target")
@@ -34,4 +39,5 @@ public class CameraManager : Singleton<CameraManager>
         }
     }
 
+    #endregion
 }

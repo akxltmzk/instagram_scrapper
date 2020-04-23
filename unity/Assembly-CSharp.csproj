@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_App\Scripts\AppManager.cs" />
     <Compile Include="Assets\_App\Scripts\CameraManager.cs" />
     <Compile Include="Assets\_App\Scripts\InitScene.cs" />
     <Compile Include="Assets\_App\Scripts\InstagramPost.cs" />
