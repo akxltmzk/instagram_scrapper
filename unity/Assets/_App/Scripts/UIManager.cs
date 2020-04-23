@@ -22,12 +22,15 @@ public class UIManager : Singleton<UIManager>
     private float gazing_timer;
     private bool isDebug;
 
+    [HideInInspector]
+    public bool isLerp;
     #endregion
 
     #region Standard Function
 
     private void Start()
     {
+        isLerp = true;
         isDebug = AppManager.Instance.isDebug;
         gazing_timer = AppManager.Instance.gazing_time;
 
@@ -71,8 +74,16 @@ public class UIManager : Singleton<UIManager>
     #region UI Function
 
     private void UICanvas_Position_Set() {
-        UICanvas.transform.position = Vector3.Lerp(UICanvas.transform.position, UIPosition_leader.position, Time.deltaTime * 2);
-        UICanvas.transform.rotation = Quaternion.Lerp(UICanvas.transform.rotation, UIPosition_leader.rotation, Time.deltaTime);
+        if (isLerp)
+        {
+            UICanvas.transform.position = Vector3.Lerp(UICanvas.transform.position, UIPosition_leader.position, Time.deltaTime * 2);
+            UICanvas.transform.rotation = Quaternion.Lerp(UICanvas.transform.rotation, UIPosition_leader.rotation, Time.deltaTime);
+        }
+        else {
+            UICanvas.transform.position = UIPosition_leader.position;
+            UICanvas.transform.rotation = UIPosition_leader.rotation;
+        }
+
     }
 
     #endregion

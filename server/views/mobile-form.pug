@@ -4,6 +4,7 @@ block content
   p.hidden#ip=socket_ip
   p.hidden#tool=tool
   .content.mobile
+
     .common_component
       #webgl
       .logo-wrap
@@ -16,7 +17,7 @@ block content
           p scrapper, please enter
           p your instagram ID.
         form#initialize-form(action='/initialize-contents')
-          input.block(type='text' id='instaID' name='instaID'  placeholder='identification' required)
+          input.block.account(type='text' id='instaID' name='instaID'  placeholder='identification' required)
           p.alert   *Only public account are available for this experience
           button(type='submit') START   
 
@@ -30,14 +31,14 @@ block content
           p.ready ready!
           p.guide-inform put on the hmd to start
           p.guide-inform the experience
-      .cancle-wrapper  
-        button.cancle CANCLE   
+      .cancel-wrapper  
+        button.cancel cancel   
 
     //- for the vr
     .experience-box.hidden
       #timer 
-      .cancle-wrapper  
-        button.cancle CANCLE  
+      .cancel-wrapper  
+        button.cancel CANCEL  
 
     //- for the display
     .control-pannel.hidden
@@ -47,7 +48,7 @@ block content
         form#deleteimage-form(action='/delete-image')
           button(type='submit') delete image    
         form#backtointro-form
-          button.cancle(type='submit') back to intro        
+          button.cancel(type='submit') back to intro        
 
   script(src="js/timer.js")
   script(src='js/mobile.js')

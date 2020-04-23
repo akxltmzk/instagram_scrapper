@@ -268,6 +268,7 @@ namespace SocketIO
 			{
 				if(!wsConnected){
 					Thread.Sleep(reconnectDelay);
+					
 				} else {
 					thPinging = true;
 					thPong =  false;

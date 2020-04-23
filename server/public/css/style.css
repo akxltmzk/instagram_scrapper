@@ -87,14 +87,14 @@ text {  font-family: scrapper-font;}
 .content.mobile .common_component .logo-wrap .logo{
   margin : 10%;
 }
-.cancle-wrapper{
+.cancel-wrapper{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
 }  
 
-.cancle{
+.cancel{
   width: 250px;
   height: 80px;
   background: black;
@@ -120,7 +120,7 @@ text {  font-family: scrapper-font;}
 .start-box  .start-guide p{
   font-family: scrapper-font;
   font-weight: 900;
-  font-size: 55px;
+  font-size: 50px;
   line-height: 10px;
 }
 

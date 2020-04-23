@@ -5,7 +5,7 @@ using UnityEngine;
 public class AppManager : Singleton<AppManager>
 {
     [Header("Debug Mode")]
-    public bool isDebug;
+    public bool isDebug = false;
 
     [Header("Init Property")]
     public string imageFolderPath = "C:\\Users\\dohyunoo\\Desktop\\scrapping_image";

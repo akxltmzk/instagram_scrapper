@@ -1,0 +1,10 @@
+{
+  "short_name": "name",
+  "name": "name",
+  "start_url": "/mobile-form",
+  "background_color": "#000",
+  "display": "fullscreen",
+  "theme_color": "#000",
+  "orientation": "portrait"
+}
+ 

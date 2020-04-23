@@ -1,10 +1,7 @@
 const socket = io.connect($('#ip').text())
+const tool = $('#tool').text()
 
 $(function () {
-
-  const tool = $('#tool').text()
-
-  //start instagram image scrapper  
   $('#initialize-form').submit(function(e) {
     e.preventDefault() 
 
@@ -64,6 +61,14 @@ $(function () {
     })
   })
 
+  $('.account').focus(()=>{
+    $('.start-box form button').css({'bottom':'-100px'})
+  })
+
+  $('.account').focusout(()=>{
+    $('.start-box form button').css({'bottom':'0'})
+  })
+
  /*========================================================= */
  /*======================== VR ============================= */
  /*========================================================= */
@@ -77,7 +82,7 @@ $(function () {
   })
 
   // back to intro
- $('.cancle').click(function(e) {
+ $('.cancel').click(function(e) {
     e.preventDefault() 
     
     if(tool == 'VR')    

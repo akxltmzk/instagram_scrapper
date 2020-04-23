@@ -13,6 +13,7 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Start()
     {
+
         raycast_distance = AppManager.Instance.raycast_distance;
     }
 
