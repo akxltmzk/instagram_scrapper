@@ -2,6 +2,8 @@ import requests
 import json
 import pprint
 import time
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
@@ -11,43 +13,92 @@ import re
 #-----------------------------  variable  -----------------------------------#
 #----------------------------------------------------------------------------#
 
-MATCH_PATTERN = re.compile('<a href="(?P<photourl>[\w-]+)">')
-insta_username = "01066631693"
-insta_password = "haha8269^^"
+# MATCH_PATTERN = re.compile('<a href="(?P<photourl>[\w-]+)">')
+
+# dot env
+project_folder = os.path.expanduser('')  
+load_dotenv(os.path.join('python_scrapper', '.env'))
+
+# url
 login_url = 'https://www.instagram.com/accounts/login/?source=auth_switcher'
 instagram_url = f'https://www.instagram.com/'
+
+# debug
 test = False
 scroll_count = 1
 
-browser =  webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\chromedriver.exe')
+# session
+session_id =''
+session_url =''
+
+# browser
+browser=''
+
 
 #----------------------------------------------------------------------------#
 #-----------------------------  function   ----------------------------------#
 #----------------------------------------------------------------------------#
 
 def gallery_url(_username):
-    login_page = browser.get(login_url)
-    time.sleep(1)
-    instagram_login(_username)
+    session_configuration()
+    browser_status = create_browser()
+
+    if browser_status is 'new_browser':
+        browser.get(instagram_url)
+        login_page = browser.get(login_url)
+        time.sleep(1)
+        instagram_login(_username)
+    else:
+        browser.get(instagram_url + _username)
+
     urllist = browserscrolldown()
     return urllist
 
+def session_configuration():
+    with open('session.json') as f :
+        global session_id
+        global session_url     
+
+        data = json.load(f)
+        session_id = data['session_id']
+        session_url = data['session_url']
+
+def create_browser():
+    global session_id
+    global session_url 
+    global browser
+
+    if session_id is '' and session_url is '':
+        browser =  webdriver.Chrome('C:\\Users\\dohyunoo\\Documents\\chromedriver_win32\\chromedriver.exe')
+        session_json = {
+            'session_id': browser.session_id,
+            'session_url': browser.command_executor._url  
+        }
+      
+        with open('session.json','w') as json_file :   
+            json.dump(session_json, json_file)
+        
+        return 'new_browser'
+    else :
+        browser = webdriver.Remote(command_executor=session_url,desired_capabilities={})
+        browser.close()
+        browser.session_id = session_id
+        return 'use_session'
+    
 def instagram_login(_username):
-    if test == False :
-        global scroll_count 
-        scroll_count = 30
-        browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
-        browser.find_element_by_xpath("//input[@name='email']").send_keys(insta_username)
-        browser.find_element_by_xpath("//input[@name='pass']").send_keys(insta_password)
-        browser.find_element_by_xpath("//button[@name='login']").click()
-        time.sleep(7)
-        browser.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
-
-
+    browser.find_element_by_xpath("//button[contains(.,'Log in')]").click()
+    browser.find_element_by_xpath("//input[@name='email']").send_keys(os.getenv("LOGIN_ID"))
+    browser.find_element_by_xpath("//input[@name='pass']").send_keys(os.getenv("PW"))
+    browser.find_element_by_xpath("//button[@name='login']").click()
+    time.sleep(7)
+    browser.find_element_by_xpath("//button[@class='aOOlW   HoLwm ']").click()
     browser.get(instagram_url + _username)
 
 def browserscrolldown():
-    global scroll_count
+    if test == False:
+        global scroll_count 
+        scroll_count = 30
+
     elem = browser.find_element_by_tag_name("body")
     no_of_pagedowns = scroll_count
     urllist = []
@@ -87,7 +138,6 @@ def browserscrolldown():
 
     return urllist
 
-
 def extract_gallery_url(bs_html):
     urllist = []
     gallery_class = bs_html.find_all('div', {'class': 'v1Nh3 kIKUG _bz0w'})
@@ -112,8 +162,4 @@ def check_wrong_account(_bs_html):
        return False
     else  :
         return True
-
-def close_browser():
-    browser.close()
-
 

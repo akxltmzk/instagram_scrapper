@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0916cc6-5299-4bab-bc1b-8e362154827d" name="Default Changelist" comment="" />
+    <list default="true" id="a0916cc6-5299-4bab-bc1b-8e362154827d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instagram.py" beforeDir="false" afterPath="$PROJECT_DIR$/instagram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/Animations/Start_loading.controller" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/Animations/Start_loading.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/Scripts/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/_Scenes/GalaxyOfMemory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/_Scenes/GalaxyOfMemory.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/Image.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/Image.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/Loading.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/Loading.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/default_instagram.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/default_instagram.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/floor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/floor.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/gate.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/gate.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/ligthspeed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/ligthspeed.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/ring 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/ring 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Assets/_App/materials/ring.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Assets/_App/materials/ring.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/LastBuild.buildreport" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/LastBuild.buildreport" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.Timeline.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEditor.TestRunner.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEditor.TestRunner.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEditor.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEditor.UI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEngine.TestRunner.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEngine.TestRunner.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ScriptAssemblies/UnityEngine.UI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ShaderCache.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ShaderCache.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/expandedItems" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/metadata/73/73b4c4b17284ab248ac37ee73429e588.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/metadata/73/73b4c4b17284ab248ac37ee73429e588.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe5.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe6.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/Library/shadercompiler-UnityShaderCompiler.exe7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/obj/Debug/Assembly-CSharp-Editor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/obj/Debug/Assembly-CSharp-Editor.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../unity/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../unity/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +65,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectId" id="1Y3tfbKrRQ3azfZx6WwbuhZ5Kba" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,7 +77,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app.py" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.instagram_scrapper">
@@ -69,8 +125,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.web_scrapper" />
       <item itemvalue="Python.instagram_scrapper" />
+      <item itemvalue="Python.web_scrapper" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -92,6 +148,10 @@
     </state>
     <state x="-1506" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582522408590" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582255784173" />
+    <state x="-1186" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587955437670">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1186" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1587955437670" />
     <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1582522372405">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -121,9 +181,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582271837389" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1582509126553">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1259" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1587955575798">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1259" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1587955575798" />
     <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582509126553" />
   </component>
 </project>

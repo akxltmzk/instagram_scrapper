@@ -1,4 +1,4 @@
-from instagram import gallery_url,close_browser
+from instagram import gallery_url
 import requests, json
 import sys 
 
@@ -17,10 +17,9 @@ def send_data_to_nodejs():
 def generator():
   yield get_gallery_url_array()
   yield send_data_to_nodejs()
-  yield close_browser()
 
 g = generator()
 next(g)
 next(g)
-next(g)
+
 

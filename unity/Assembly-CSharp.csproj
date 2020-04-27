@@ -450,7 +450,6 @@
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_Tunnel.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_Warp.cs" />
     <Compile Include="Assets\Camera Filter Pack\Scripts\CameraFilterPack_Vision_Warp2.cs" />
-    <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Bloom\Bloom.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Common\ImageEffectHelper.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Common\MinAttribute.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Common\RenderTextureUtility.cs" />
@@ -604,7 +603,6 @@
     <None Include="Assets\TheLabRenderer\Shaders\vr_matrix_palette_skinning.cginc" />
     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Effects\Shaders\RFX4_UberParticleShader.shader" />
     <None Include="Assets\VRWaterShader2\VRWaterShader(legacy)\Shaders\ZWrite Double Sided.shader" />
-    <None Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Bloom\Resources\Bloom.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\VRWaterShader2\Shaders\VRWSCore.cginc" />

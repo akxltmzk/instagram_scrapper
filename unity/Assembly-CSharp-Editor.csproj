@@ -65,8 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\_App\SocketIO\JSONObject\Editor\JSONChecker.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Editor\ImageEffects\BloomEditor.cs" />
-    <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Bloom\Editor\BloomEditor.cs" />
-    <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Bloom\Editor\BloomGraphDrawer.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Common\Editor\EditorGUIHelper.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Common\Editor\FieldFinder.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack 3\Effects\Common\Editor\MinDrawer.cs" />

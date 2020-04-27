@@ -25,7 +25,7 @@ public class UIManager : Singleton<UIManager>
     // private
     private float gazing_timer;
     private bool isDebug;
-
+    private bool isAnim = false;
     [HideInInspector]
     public bool isLerp;
 
@@ -53,11 +53,14 @@ public class UIManager : Singleton<UIManager>
 
     #region Gazing Function
     
-    public void gazing_up() {       
-        gazing_timer -= Time.deltaTime;
-        int time = (int)(gazing_timer % 60);
-        start_target_txt.text = time.ToString();
+    public void gazing_up() {
+
         start_loading_anim.SetTrigger("loading");
+
+        int time = (int)(gazing_timer % 60);
+        gazing_timer -= Time.deltaTime;
+        start_target_txt.text = time.ToString();
+        
         if (gazing_timer < 0)
         {        
             UICanvas.SetActive(false);
@@ -67,11 +70,13 @@ public class UIManager : Singleton<UIManager>
             InitScene.Instance.experience_on = !InitScene.Instance.experience_on;
             InitScene.Instance.ManageExperience();
         }
+        
     }
 
     public void gazing_down() {
         start_target_txt.text = "START";
         gazing_timer = AppManager.Instance.gazing_time;
+        
     }
 
     #endregion

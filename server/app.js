@@ -5,6 +5,7 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const fs = require('fs')
 
 let app = express()
 app.io = require('socket.io')()
@@ -30,6 +31,10 @@ app.use((req,res,next)=>{
 
 app.use('/', browser_router)
 app.use('/', mobile_router)
+
+let session_config = {"session_id": "", "session_url": ""}
+let data = JSON.stringify(session_config)
+fs.writeFileSync('session.json', data);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
